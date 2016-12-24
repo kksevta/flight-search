@@ -1,0 +1,3 @@
+export const SEARCH_FLIGHT_STARTED = 'search-form/SEARCH_FLIGHT_STARTED';
+export const SEARCH_FLIGHT_FAILED = 'search-form/SEARCH_FLIGHT_FAILED';
+export const SEARCH_FLIGHT_COMPLETED = 'search-form/SEARCH_FLIGHT_COMPLETED';
