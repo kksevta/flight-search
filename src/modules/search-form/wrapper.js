@@ -19,6 +19,7 @@ class SearchFormWrapper extends Component {
         this.setState({
             returnFlight
         })
+        this.props.dispatch(Actions.changeFlightWay())
     }
     render() {
         return (
@@ -33,9 +34,4 @@ class SearchFormWrapper extends Component {
         )
     }
 }
-const mapStateToProps = (state) => {
-    return {
-
-    }
-}
-export default withRouter(connect(mapStateToProps, null)(SearchFormWrapper))
+export default withRouter(connect(null, null)(SearchFormWrapper))

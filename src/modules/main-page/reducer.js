@@ -10,6 +10,10 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         searchedFlights: action.payload
       })
+    case SearchFormModule.actionTypes.CHANGE_FLIGHT_WAY_TYPE:
+      return Object.assign({}, state, {
+        searchedFlights: []
+      })
     default:
       return state
   }

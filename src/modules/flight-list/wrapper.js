@@ -17,9 +17,9 @@ class FlightSearchWrapper extends Component {
                 <div class="panel-body">
                     <ul class="list-group">
                         {
-                            searchedFlights.map((flight) => {
+                            searchedFlights.map((flight, index) => {
                                 return (
-                                    <li class="list-group-item" key={flight.flightId}>  <FlightListComponents.FlightListBlock flightData={flight} /></li>)
+                                    <li class="list-group-item" key={index}>  <FlightListComponents.FlightListBlock flightData={flight} /></li>)
                             })
                         }
                     </ul>

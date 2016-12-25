@@ -1,26 +1,54 @@
 import React, { Component } from 'react';
 import { Cities } from 'app/config/data'
 import DynamicSlider from './dynamic-slider'
+import * as Errors from 'app/config/errors'
 class Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
             formDirty: true,
-            errorMessage: 'No Error'
+            errorMessage: 'No Error',
+            showFilter: false
         }
     }
     onPriceSliderChange(priceSliderVal) {
         this.performSearch(priceSliderVal)
     }
     isFormDirty(searchedFlightData) {
-        if ((searchedFlightData.originCity == searchedFlightData.destinationCity)
-            || !searchedFlightData.departureDate
-            || (searchedFlightData.returnFlight && !searchedFlightData.arrivalDate)
-            || (searchedFlightData.returnFlight && (searchedFlightData.arrivalDate < searchedFlightData.departureDate))
-        ) {
+        let Error = ''
+        if (searchedFlightData.originCity == searchedFlightData.destinationCity) {
+            Error = Errors.ORIGIN_DESTINATION_SAME
+        }
+        else if (!searchedFlightData.departureDate || (searchedFlightData.returnFlight && !searchedFlightData.arrivalDate)) {
+            Error = Errors.DATES_NOT_SELECTED
+        }
+        else if (searchedFlightData.returnFlight && (searchedFlightData.arrivalDate < searchedFlightData.departureDate)) {
+            Error = Errors.DEPARTURE_DATE_ARRIVAL_DATE_MISMATCH_ERROR
+        }
+
+        if (Error) {
+            this.setState({
+                formDirty: true,
+                showFilter: false,
+                errorMessage: Error
+            })
+            return true
+        }
+        else {
+            this.setState({
+                formDirty: false,
+                errorMessage: 'No Error',
+                showFilter: true
+            })
             return false
         }
-        return true
+    }
+
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            showFilter: false
+        })
     }
 
     performSearch(priceSliderVal) {
@@ -38,18 +66,8 @@ class Form extends Component {
         if (searchedFlightData.returnFlight) {
             searchedFlightData.arrivalDate = refs.txtarrivaldate.value;
         }
-        if (this.isFormDirty(searchedFlightData)) {
-            this.setState({
-                formDirty: false,
-                errorMessage: 'No Error'
-            })
+        if (!this.isFormDirty(searchedFlightData)) {
             this.props.searchFlights(searchedFlightData)
-        }
-        else {
-            this.setState({
-                formDirty: true,
-                errorMessage: 'Some Error in Selection'
-            })
         }
     }
     onClickSearchFlights(event) {
@@ -126,7 +144,7 @@ class Form extends Component {
                     }
 
                 </div>
-                {!this.state.formDirty ?
+                {this.state.showFilter && !this.state.isFormDirty ?
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Refine Flight Search</h3>

@@ -11,3 +11,7 @@ export const searchFlightCompleted = (payload) => ({
     type: ActionTypes.SEARCH_FLIGHT_COMPLETED,
     payload
 });
+export const changeFlightWay = (payload) => ({
+    type: ActionTypes.CHANGE_FLIGHT_WAY_TYPE,
+    payload
+});
