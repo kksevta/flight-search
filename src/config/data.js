@@ -2,100 +2,104 @@ export const FlightsData = [
     {
         departureDate: '2016-12-29',
         arrivalDate: '2016-12-29',
-        departureTime: '08:00am',
-        arrivalTime: '10:00am',
-        originCity: 'Pune',
-        destinationCity: 'Delhi',
+        departureTime: '10:00am',
+        arrivalTime: '12:05pm',
+        originCity: 'PNQ',
+        destinationCity: 'DEL',
         flightNo: '612',
         price: 3000,
-        flightId: 1
+        flightId: 1,
+        remainingSeates: 2
     },
     {
         departureDate: '2016-12-29',
         arrivalDate: '2016-12-29',
         departureTime: '08:00am',
         arrivalTime: '10:00am',
-        originCity: 'Pune',
-        destinationCity: 'Jammu',
+        originCity: 'PNQ',
+        destinationCity: 'JAM',
         flightNo: '410',
-        price: 3000,
-        flightId: 2
+        price: 6000,
+        flightId: 2,
+        remainingSeates: 1
     },
     {
         departureDate: '2016-12-29',
         arrivalDate: '2016-12-29',
         departureTime: '08:00am',
         arrivalTime: '10:00am',
-        originCity: 'Pune',
-        destinationCity: 'Delhi',
+        originCity: 'PNQ',
+        destinationCity: 'DEL',
         flightNo: '267',
-        price: 3000,
-        flightId: 3
+        price: 4000,
+        flightId: 3,
+        remainingSeates: 3
     },
     {
         departureDate: '2016-12-30',
         arrivalDate: '2016-12-29',
         departureTime: '08:00am',
         arrivalTime: '10:00am',
-        originCity: 'Delhi',
-        destinationCity: 'Pune',
+        originCity: 'DEL',
+        destinationCity: 'PNQ',
         flightNo: '267',
-        price: 3000,
-        flightId: 3
+        price: 7000,
+        flightId: 3,
+        remainingSeates: 4
     }
 ]
 
 export const Cities = [
     {
-        id: '1',
+        id: 'PNQ',
         name: 'Pune',
     },
     {
-        id: '2',
+        id: 'DEL',
         name: 'Delhi',
     },
     {
-        id: '3',
+        id: 'MMB',
         name: 'Mumbai',
     },
     {
-        id: '4',
+        id: 'BNG',
         name: 'Bangluru',
     },
     {
-        id: '5',
+        id: 'CHD',
         name: 'Chandigarh',
     },
     {
-        id: '6',
+        id: 'CHN',
         name: 'Chennai',
     },
     {
-        id: '7',
+        id: 'LEH',
         name: 'Leh',
     },
     {
-        id: '8',
+        id: 'KKL',
         name: 'Kolkata',
     },
     {
-        id: '9',
+        id: 'SRT',
         name: 'Surat',
     },
     {
-        id: '10',
+        id: 'JPR',
         name: 'Jaipur',
     },
     {
-        id: '11',
+        id: 'KPR',
         name: 'Kanpur',
     },
     {
-        id: '12',
+        id: 'LKW',
         name: 'Lucknow',
     },
     {
-        id: '13',
+        id: 'AMT',
         name: 'Amritsar',
     },
 ]

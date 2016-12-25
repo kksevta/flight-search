@@ -9,23 +9,31 @@ class FlightListBlock extends Component {
             <div class="row">
                 <div class="col-md-9">
                     <div class="row">
-                        <h4>Rs. {flightData.originToDestinationFlight.price + (flightData.destinationToOriginFlight ? flightData.destinationToOriginFlight.price : 0)}</h4>
+                        <h4 style={{ marginLeft: '10px' }}>Rs. {flightData.originToDestinationFlight.price + (flightData.destinationToOriginFlight ? flightData.destinationToOriginFlight.price : 0)}</h4>
                         {flightData.originToDestinationFlight ?
                             <div class="col-md-6">
-                                <h6>{flightData.originToDestinationFlight.flightNo}</h6>
+                                <h6>Flight No.: {flightData.originToDestinationFlight.flightNo}</h6>
                                 <h5>{flightData.originToDestinationFlight.originCity} > {flightData.originToDestinationFlight.destinationCity} </h5>
                                 <h6>Departure: {flightData.originToDestinationFlight.departureTime}</h6>
                                 <h6>Arrival:{flightData.originToDestinationFlight.arrivalTime}</h6>
+                                {
+                                    flightData.destinationToOriginFlight && flightData.originToDestinationFlight ?
+                                        <h6>Rs. {flightData.originToDestinationFlight.price}</h6> : null
+                                }
                             </div> : null
 
                         }
                         {
                             flightData.destinationToOriginFlight ?
                                 <div class="col-md-6">
-                                    <h6>{flightData.destinationToOriginFlight.flightNo}</h6>
+                                    <h6>Flight No.: {flightData.destinationToOriginFlight.flightNo}</h6>
                                     <h5>{flightData.destinationToOriginFlight.originCity} > {flightData.destinationToOriginFlight.destinationCity} </h5>
                                     <h6>Departure: {flightData.destinationToOriginFlight.departureTime}</h6>
                                     <h6>Arrival:{flightData.destinationToOriginFlight.arrivalTime}</h6>
+                                    {
+                                        flightData.destinationToOriginFlight && flightData.originToDestinationFlight ?
+                                            <h6>Rs. {flightData.destinationToOriginFlight.price}</h6> : null
+                                    }
                                 </div> : null
                         }
                     </div>

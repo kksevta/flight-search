@@ -87,7 +87,7 @@ class Form extends Component {
                                 <select ref="selectorigincity" name="selectorigincity" class="form-control">
                                     {
                                         Cities.map((city) => {
-                                            return <option key={city.id} value={city.name}>{city.name}</option>
+                                            return <option key={city.id} value={city.id}>{city.name}</option>
                                         })
                                     }
                                 </select>
@@ -100,7 +100,7 @@ class Form extends Component {
                                 <select ref="selectdestinationcity" name="selectdestinationcity" class="form-control">
                                     {
                                         Cities.map((city) => {
-                                            return <option key={city.id} value={city.name}>{city.name}</option>
+                                            return <option key={city.id} value={city.id}>{city.name}</option>
                                         })
                                     }
                                 </select>
@@ -126,8 +126,8 @@ class Form extends Component {
                                 <select ref="selectpassengers" name="selectpassengers" class="form-control">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
-                                    <option value="1">3</option>
-                                    <option value="2">4</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
                                 </select>
                             </div>
                         </div>
