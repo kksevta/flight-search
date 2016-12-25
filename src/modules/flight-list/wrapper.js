@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import * as Actions from './actions'
-import { withRouter } from 'react-router'
 import FlightListComponents from './components'
 class FlightSearchWrapper extends Component {
     constructor(props) {
@@ -33,4 +32,4 @@ const mapStateToProps = (state) => {
         searchedFlights: state.mainPage.searchedFlights
     }
 }
-export default withRouter(connect(mapStateToProps, null)(FlightSearchWrapper))
+export default connect(mapStateToProps, null)(FlightSearchWrapper)

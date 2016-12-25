@@ -6,14 +6,23 @@ class Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            formDirty: true,
-            errorMessage: 'No Error',
-            showFilter: false
+            formDirty: true,            //boolean for form validation
+            errorMessage: 'No Error',   // Error Message to display on form validation
+            showFilter: false            //boolean to show slider filter
         }
     }
+    /**
+     * This method would be called when Slider will be moved
+     * 
+     */
     onPriceSliderChange(priceSliderVal) {
         this.performSearch(priceSliderVal)
     }
+
+    /**
+     * Method to check validity of search Form before performing Search operation
+     * 
+     */
     isFormDirty(searchedFlightData) {
         let Error = ''
         if (searchedFlightData.originCity == searchedFlightData.destinationCity) {
@@ -26,7 +35,9 @@ class Form extends Component {
             Error = Errors.DEPARTURE_DATE_ARRIVAL_DATE_MISMATCH_ERROR
         }
 
+
         if (Error) {
+            // If some Error in form 
             this.setState({
                 formDirty: true,
                 showFilter: false,
@@ -35,6 +46,7 @@ class Form extends Component {
             return true
         }
         else {
+            // If Form is valid 
             this.setState({
                 formDirty: false,
                 errorMessage: 'No Error',
@@ -54,6 +66,7 @@ class Form extends Component {
     performSearch(priceSliderVal) {
         const refs = this.refs;
 
+        //creating searched Flight Data on basis of selected data
         const searchedFlightData = {
             originCity: refs.selectorigincity.value,
             destinationCity: refs.selectdestinationcity.value,

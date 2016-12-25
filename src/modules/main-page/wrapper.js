@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import * as Actions from './actions'
-import { withRouter } from 'react-router'
 import MainPageComponents from './components'
 import SearchFormModule from 'app/search-form'
 import FlightListModule from 'app/flight-list'
@@ -32,9 +31,4 @@ class MainPageWrapper extends Component {
         )
     }
 }
-const mapStateToProps = (state) => {
-    return {
-
-    }
-}
-export default withRouter(connect(mapStateToProps, null)(MainPageWrapper))
+export default connect(null, null)(MainPageWrapper)

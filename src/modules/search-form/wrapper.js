@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import * as Actions from './actions'
-import { withRouter } from 'react-router'
 import SearchFormComponents from './components'
 import { searchFlightThunk } from './thunks'
 class SearchFormWrapper extends Component {
@@ -34,4 +33,4 @@ class SearchFormWrapper extends Component {
         )
     }
 }
-export default withRouter(connect(null, null)(SearchFormWrapper))
+export default connect(null, null)(SearchFormWrapper)

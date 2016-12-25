@@ -1,7 +1,12 @@
 import { FlightsData } from 'app/config/data'
 
+
+/**
+ * Method to filter filghts data on basis of searchFlightData
+ * 
+ */
 export const filterFlights = (searchedFlightData) => {
-    var backupFlightsData = FlightsData.slice();
+    var backupFlightsData = FlightsData.slice();  //making copying for original data so to avoid any mutability
     var originToDestinationFlights = [];
     var destinationToOriginFlights = [];
     originToDestinationFlights = backupFlightsData.filter((flight) => {
@@ -15,6 +20,25 @@ export const filterFlights = (searchedFlightData) => {
     return crunchData(searchedFlightData, originToDestinationFlights, destinationToOriginFlights)
 }
 
+
+
+/**
+ * Method to produce usable data at UI on basis of Filtered Data 
+ * Return Data would Be
+ * 
+ * data=[
+ *  {
+ *     originToDestinationFlight:{},
+ *     destinationToOriginFlight:{} 
+ *  },
+ *  {
+ *     originToDestinationFlight:{},
+ *     destinationToOriginFlight:{} 
+ *  }
+ * 
+ * ]
+ * 
+ */
 function crunchData(searchedFlightData, originToDestinationFlights, destinationToOriginFlights) {
     var flightsList = []
     if (searchedFlightData.returnFlight) {
